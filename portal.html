@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>APTO · Panel del propietario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crema:#F4EFE6; --papel:#FBF9F4; --naranja:#C8572A; --vino:#9B3A2E;
+  --tinta:#1D1D1B; --linea:#E7DCC9; --mute:#6B6256; --exito:#2F7D5B; --espera:#B8892B;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--crema);color:var(--tinta);
+     font-family:Manrope,system-ui,sans-serif;font-size:16px;line-height:1.6;
+     -webkit-font-smoothing:antialiased}
+h1,h2,h3,.pf{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.15}
+a{color:var(--vino)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.num{font-variant-numeric:tabular-nums}
+
+.demo{background:var(--vino);color:var(--crema);padding:11px 0;font-size:13.5px;text-align:center}
+.demo b{color:#fff}
+
+header.top{border-bottom:1px solid var(--linea);padding:26px 0 0;background:var(--papel)}
+.brandrow{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.wordmark{font-family:'Playfair Display',serif;font-weight:800;letter-spacing:.30em;
+          font-size:20px;color:var(--naranja)}
+.brandrow .prop{color:var(--mute);font-size:14px}
+h1.t{font-size:clamp(26px,3.6vw,36px);margin:14px 0 4px}
+.subt{color:var(--mute);font-size:15px;margin:0 0 20px}
+nav.tabs{display:flex;gap:2px;overflow-x:auto}
+nav.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:13px 18px;
+  font:inherit;font-size:14.5px;font-weight:600;color:var(--mute);cursor:pointer;white-space:nowrap}
+nav.tabs button:hover{color:var(--tinta)}
+nav.tabs button[aria-selected="true"]{color:var(--naranja);border-bottom-color:var(--naranja)}
+nav.tabs button:focus-visible{outline:2px solid var(--naranja);outline-offset:-2px}
+
+main{padding:40px 0 80px}
+.panel[hidden]{display:none}
+h2.sec{font-size:24px;margin:0 0 4px}
+.lead{color:var(--mute);font-size:15px;margin:0 0 24px;max-width:70ch}
+.blk{margin-bottom:46px}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:1px;
+      background:var(--linea);border:1px solid var(--linea);margin-bottom:30px}
+.kpi{background:var(--papel);padding:18px 20px}
+.kpi b{display:block;font-family:'Playfair Display',serif;font-size:27px;line-height:1.1;
+       font-variant-numeric:tabular-nums}
+.kpi span{font-size:12.5px;color:var(--mute)}
+.kpi.hi b{color:var(--vino)}
+
+.tbox{overflow-x:auto;border:1px solid var(--linea);background:var(--papel)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--linea)}
+thead th{font-size:12px;color:var(--mute);font-weight:600;background:var(--crema);
+         position:sticky;top:0}
+tbody tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.tot td{background:var(--crema);font-weight:700}
+
+.chip{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:2px;
+      white-space:nowrap}
+.ok{background:#E4EFE8;color:var(--exito)}
+.wait{background:#F6EEDC;color:var(--espera)}
+.go{background:#F3E2DA;color:var(--vino)}
+
+.cadena{border:1px solid var(--linea);background:var(--papel);max-width:620px}
+.cad{display:flex;justify-content:space-between;gap:16px;padding:13px 20px;
+     border-bottom:1px solid var(--linea);font-size:15px}
+.cad:last-child{border-bottom:0}
+.cad b{font-family:'Playfair Display',serif;font-size:18px;font-variant-numeric:tabular-nums}
+.cad.neg{color:var(--mute)} .cad.neg b{color:var(--mute);font-size:16px}
+.cad.sub{background:var(--crema)}
+.cad.fin{background:var(--vino);color:var(--crema)} .cad.fin b{color:var(--crema);font-size:22px}
+
+.nota{font-size:13px;color:var(--mute);margin-top:14px;line-height:1.65;max-width:78ch}
+.callout{border-left:3px solid var(--naranja);background:var(--papel);padding:18px 22px;margin:24px 0}
+.callout p{margin:0}
+.callout .ttl{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;
+              color:var(--vino);margin-bottom:7px;display:block}
+
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.lk{display:block;background:var(--papel);border:1px solid var(--linea);padding:17px 19px;
+    text-decoration:none;color:inherit}
+.lk:hover{border-color:var(--naranja)}
+.lk b{display:block;font-family:'Playfair Display',serif;font-size:17px;margin-bottom:3px}
+.lk span{font-size:13px;color:var(--mute)}
+
+.barra{height:7px;background:var(--linea);margin-top:7px;overflow:hidden}
+.barra i{display:block;height:100%;background:var(--naranja)}
+
+.mesrow{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--linea);
+        font-size:14.5px}
+.mesrow:last-child{border-bottom:0}
+.mesrow .m{width:52px;color:var(--mute);font-size:13px}
+.mesrow .b{flex:1;height:20px;background:var(--linea);position:relative}
+.mesrow .b i{display:block;height:100%;background:var(--vino)}
+.mesrow .v{width:96px;text-align:right;font-variant-numeric:tabular-nums;font-size:13.5px}
+.mesrow.pk .b i{background:var(--naranja)}
+
+footer{border-top:1px solid var(--linea);padding:34px 0 60px;color:var(--mute);font-size:13px}
+@media(max-width:700px){ body{font-size:15px} main{padding:28px 0 60px} .blk{margin-bottom:34px} }
+</style>
+</head>
+<body>
+
+<div class="demo"><div class="wrap">Estás viendo el panel con <b>datos de demostración</b>, para
+  que sepas exactamente qué vas a recibir. Ninguna cifra de esta página corresponde a tu
+  departamento.</div></div>
+
+<header class="top"><div class="wrap">
+  <div class="brandrow">
+    <span class="wordmark">APTO</span>
+    <span class="prop">Panel del propietario · departamento de ejemplo · 1D Ñuñoa</span>
+  </div>
+  <h1 class="t">Todo lo que vas a poder ver</h1>
+  <p class="subt">Sin pedirlo, sin esperar a fin de mes y sin tener que creernos.</p>
+  <nav class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" aria-controls="p-compras" id="t-compras">Compras y habilitación</button>
+    <button role="tab" aria-selected="false" aria-controls="p-admin" id="t-admin">Administración</button>
+    <button role="tab" aria-selected="false" aria-controls="p-estrategia" id="t-estrategia">Estrategia del anuncio</button>
+    <button role="tab" aria-selected="false" aria-controls="p-docs" id="t-docs">Documentos y enlaces</button>
+  </nav>
+</div></header>
+
+<main><div class="wrap">
+
+<!-- ══════════ COMPRAS ══════════ -->
+<section class="panel" id="p-compras" role="tabpanel" aria-labelledby="t-compras">
+
+  <div class="blk">
+    <h2 class="sec">Dónde va tu inversión</h2>
+    <p class="lead">La cuadratura entre lo que se presupuestó y lo que efectivamente se gastó, al
+       día. Si algo se movió, aparece acá con su explicación — no al final.</p>
+    <div class="kpis">
+      <div class="kpi"><b class="num">$3.240.000</b><span>Presupuestado</span></div>
+      <div class="kpi"><b class="num">$3.187.400</b><span>Gastado a la fecha</span></div>
+      <div class="kpi hi"><b class="num">$52.600</b><span>A tu favor</span></div>
+      <div class="kpi"><b class="num">38 de 41</b><span>Piezas ya en el depto</span></div>
+    </div>
+    <div class="callout">
+      <span class="ttl">Por qué quedaron $52.600 a tu favor</span>
+      <p>La poltrona del living llegó con una mancha y se cambió por el modelo equivalente de otro
+        proveedor, que salía menos. La diferencia es tuya, no nuestra: se descuenta del saldo final.
+        El comprobante del cambio está en la pestaña de documentos.</p>
+    </div>
+  </div>
+
+  <div class="blk">
+    <h2 class="sec">Tu lista de compras, pieza por pieza</h2>
+    <p class="lead">Cada cosa que entra al departamento, con su precio y su estado. Durante el
+       diseño esta misma lista es editable: marcas lo que ya tienes o lo que no quieres y el total
+       se recalcula solo.</p>
+    <div class="tbox"><table>
+      <thead><tr><th>Espacio</th><th>Pieza</th><th class="n">Precio</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td>Living</td><td>Sofá 2 cuerpos, tela texturada</td><td class="n">$449.990</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Living</td><td>Mesa de centro, madera clara</td><td class="n">$129.990</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Living</td><td>Poltrona de lectura <em>(reemplazada)</em></td><td class="n">$174.900</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Living</td><td>Lámpara de pie, pantalla lino</td><td class="n">$79.990</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Living</td><td>Alfombra de yute 160×230</td><td class="n">$119.990</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Dormitorio</td><td>Cama con respaldo de listones</td><td class="n">$389.990</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Dormitorio</td><td>Colchón, densidad hotelera</td><td class="n">$329.990</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Dormitorio</td><td>Veladores en madera clara (2)</td><td class="n">$99.980</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Dormitorio</td><td>Cortina blackout + riel</td><td class="n">$144.900</td><td><span class="chip go">En camino</span></td></tr>
+        <tr><td>Cocina</td><td>Menaje completo para 4</td><td class="n">$189.900</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Cocina</td><td>Set de ollas y sartenes</td><td class="n">$134.990</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Cocina</td><td>Hervidor y cafetera</td><td class="n">$69.980</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Baño</td><td>Set de toallas (3 juegos)</td><td class="n">$89.970</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Baño</td><td>Espejo redondo con marco</td><td class="n">$64.990</td><td><span class="chip wait">Pedido</span></td></tr>
+        <tr><td>Transversal</td><td>Ropa de cama y textiles (2 mudas)</td><td class="n">$219.900</td><td><span class="chip ok">Montado</span></td></tr>
+        <tr><td>Transversal</td><td>Deco, plantas y cuadros</td><td class="n">$159.900</td><td><span class="chip go">En camino</span></td></tr>
+        <tr class="tot"><td colspan="2">Total equipamiento · 41 piezas</td><td class="n">$2.848.350</td><td></td></tr>
+      </tbody>
+    </table></div>
+    <p class="nota">La tabla de ejemplo muestra 16 de las 41 líneas. En tu panel real están todas,
+      con buscador y filtro por espacio.</p>
+  </div>
+
+  <div class="blk">
+    <h2 class="sec">La obra, itemizada</h2>
+    <p class="lead">El trabajo de nuestro equipo en terreno. Va desglosado por partida, no como un
+       monto único de "montaje".</p>
+    <div class="tbox"><table>
+      <thead><tr><th>Partida</th><th>Qué incluye</th><th class="n">Valor</th></tr></thead>
+      <tbody>
+        <tr><td>Preparación y traslados</td><td>Aseo grueso, traslados, retiro de residuos y limpieza de cierre</td><td class="n">$121.500</td></tr>
+        <tr><td>Instalación de iluminación</td><td>Focos, colgantes y puntos de luz</td><td class="n">$86.400</td></tr>
+        <tr><td>Cuadros y espejos</td><td>Colgado y nivelación en todos los espacios</td><td class="n">$48.600</td></tr>
+        <tr><td>Armado de muebles</td><td>Cama, mesa de centro, veladores y poltrona</td><td class="n">$54.000</td></tr>
+        <tr><td>TV y montaje general</td><td>Instalación de TV, cortinas y montaje final en terreno</td><td class="n">$28.550</td></tr>
+        <tr class="tot"><td colspan="2">Total puesta en marcha</td><td class="n">$339.050</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="blk">
+    <h2 class="sec">Plan de pago</h2>
+    <p class="lead">Con fechas, para que sepas de antemano cuándo sale cada peso.</p>
+    <div class="tbox"><table>
+      <thead><tr><th>Hito</th><th>Fecha</th><th class="n">Monto</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td>1 · Proyecto de diseño</td><td>Al confirmar</td><td class="n">$480.000</td><td><span class="chip ok">Pagado</span></td></tr>
+        <tr><td>2 · Lista de compras aprobada</td><td>Al aprobar la lista</td><td class="n">$1.424.175</td><td><span class="chip ok">Pagado</span></td></tr>
+        <tr><td>3 · Saldo de compras</td><td>Antes del montaje</td><td class="n">$1.424.175</td><td><span class="chip ok">Pagado</span></td></tr>
+        <tr><td>4 · Cierre de obra</td><td>Al entregar operativo</td><td class="n">$286.450</td><td><span class="chip wait">Pendiente</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="nota">Nada se compra antes de que apruebes la lista. El hito 1 es lo único que se paga
+      por adelantado, y es el trabajo de diseño en sí.</p>
+  </div>
+</section>
+
+<!-- ══════════ ADMINISTRACIÓN ══════════ -->
+<section class="panel" id="p-admin" role="tabpanel" aria-labelledby="t-admin" hidden>
+
+  <div class="blk">
+    <h2 class="sec">Tu mes, de una mirada</h2>
+    <p class="lead">Se actualiza solo. No tienes que pedirlo ni esperar a que alguien lo arme.</p>
+    <div class="kpis">
+      <div class="kpi"><b class="num">22</b><span>Noches ocupadas de 31</span></div>
+      <div class="kpi"><b class="num">71%</b><span>Ocupación</span></div>
+      <div class="kpi"><b class="num">$57.900</b><span>Tarifa promedio por noche</span></div>
+      <div class="kpi hi"><b class="num">$689.889</b><span>Líquido a tu cuenta</span></div>
+    </div>
+  </div>
+
+  <div class="blk">
+    <h2 class="sec">De lo que paga el huésped a lo que llega a tu cuenta</h2>
+    <p class="lead">La cadena completa, incluyendo los eslabones que no son nuestros.</p>
+    <div class="cadena">
+      <div class="cad"><span>Ingreso bruto del mes</span><b>$1.165.353</b></div>
+      <div class="cad neg"><span>Comisión de Airbnb · 15,5%</span><b>−$180.630</b></div>
+      <div class="cad neg"><span>Limpieza entre estadías</span><b>−$122.362</b></div>
+      <div class="cad sub"><span>Queda</span><b>$862.361</b></div>
+      <div class="cad neg"><span>Administración APTO · 20%</span><b>−$172.472</b></div>
+      <div class="cad fin"><span>A ti, líquido</span><b>$689.889</b></div>
+    </div>
+    <p class="nota">La limpieza la paga el huésped dentro de lo que reserva: no es un desembolso
+      tuyo, aparece para que veas la cadena entera. Nuestra comisión se aplica después de Airbnb y
+      de la limpieza, o sea sobre lo que efectivamente queda. Cifras antes de gastos comunes y
+      contribuciones, que siguen siendo tuyos.</p>
+  </div>
+
+  <div class="blk">
+    <h2 class="sec">Reserva por reserva</h2>
+    <p class="lead">El detalle que respalda el número de arriba. Cada estadía, con su canal, sus
+       noches y lo que dejó.</p>
+    <div class="tbox"><table>
+      <thead><tr><th>Entrada</th><th>Canal</th><th class="n">Noches</th><th class="n">Bruto</th><th class="n">A ti</th></tr></thead>
+      <tbody>
+        <tr><td>02 sep</td><td>Airbnb</td><td class="n">3</td><td class="n">$178.500</td><td class="n">$105.672</td></tr>
+        <tr><td>07 sep</td><td>Airbnb</td><td class="n">2</td><td class="n">$121.000</td><td class="n">$71.632</td></tr>
+        <tr><td>11 sep</td><td>Booking</td><td class="n">4</td><td class="n">$228.400</td><td class="n">$135.213</td></tr>
+        <tr><td>17 sep</td><td>Airbnb</td><td class="n">5</td><td class="n">$301.250</td><td class="n">$178.340</td></tr>
+        <tr><td>24 sep</td><td>Directo</td><td class="n">3</td><td class="n">$170.100</td><td class="n">$100.699</td></tr>
+        <tr><td>29 sep</td><td>Airbnb</td><td class="n">5</td><td class="n">$166.103</td><td class="n">$98.333</td></tr>
+        <tr class="tot"><td colspan="2">Total del mes</td><td class="n">22</td><td class="n">$1.165.353</td><td class="n">$689.889</td></tr>
+      </tbody>
+    </table></div>
+    <p class="nota">Las reservas que cruzan de un mes a otro se reparten por noches entre ambos
+      meses, para que ningún mes se lleve ingresos que no le tocan.</p>
+  </div>
+
+  <div class="blk">
+    <h2 class="sec">Cómo se comporta tu año</h2>
+    <p class="lead">La estacionalidad real de Santiago, medida en nuestra propia operación. Julio y
+       agosto son los meses fuertes; septiembre es el más flojo del año.</p>
+    <div>
+      <div class="mesrow"><span class="m">Ene</span><span class="b"><i style="width:62%"></i></span><span class="v">0,92</span></div>
+      <div class="mesrow"><span class="m">Feb</span><span class="b"><i style="width:58%"></i></span><span class="v">0,86</span></div>
+      <div class="mesrow"><span class="m">Mar</span><span class="b"><i style="width:60%"></i></span><span class="v">0,89</span></div>
+      <div class="mesrow"><span class="m">Abr</span><span class="b"><i style="width:63%"></i></span><span class="v">0,94</span></div>
+      <div class="mesrow"><span class="m">May</span><span class="b"><i style="width:72%"></i></span><span class="v">1,07</span></div>
+      <div class="mesrow"><span class="m">Jun</span><span class="b"><i style="width:80%"></i></span><span class="v">1,19</span></div>
+      <div class="mesrow pk"><span class="m">Jul</span><span class="b"><i style="width:100%"></i></span><span class="v">1,55</span></div>
+      <div class="mesrow pk"><span class="m">Ago</span><span class="b"><i style="width:89%"></i></span><span class="v">1,38</span></div>
+      <div class="mesrow"><span class="m">Sep</span><span class="b"><i style="width:33%"></i></span><span class="v">0,51</span></div>
+      <div class="mesrow"><span class="m">Oct</span><span class="b"><i style="width:59%"></i></span><span class="v">0,88</span></div>
+      <div class="mesrow"><span class="m">Nov</span><span class="b"><i style="width:64%"></i></span><span class="v">0,95</span></div>
+      <div class="mesrow"><span class="m">Dic</span><span class="b"><i style="width:57%"></i></span><span class="v">0,85</span></div>
+    </div>
+    <p class="nota">Índice sobre el promedio del año, construido con ocho años de nuestra serie
+      propia de casas y departamentos. Sirve para leer un mes flojo sin asustarse y para saber
+      cuándo hay que apretar el precio y cuándo hay que llenar.</p>
+  </div>
+
+  <div class="blk">
+    <h2 class="sec">Liquidaciones</h2>
+    <p class="lead">Una transferencia al mes, con su comprobante y su detalle asociado.</p>
+    <div class="tbox"><table>
+      <thead><tr><th>Período</th><th>Fecha de pago</th><th class="n">Monto</th><th>Comprobante</th></tr></thead>
+      <tbody>
+        <tr><td>Septiembre</td><td>05 oct</td><td class="n">$689.889</td><td><span class="chip wait">Programada</span></td></tr>
+        <tr><td>Agosto</td><td>05 sep</td><td class="n">$714.220</td><td><span class="chip ok">Pagada</span></td></tr>
+        <tr><td>Julio</td><td>05 ago</td><td class="n">$803.155</td><td><span class="chip ok">Pagada</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- ══════════ ESTRATEGIA ══════════ -->
+<section class="panel" id="p-estrategia" role="tabpanel" aria-labelledby="t-estrategia" hidden>
+
+  <div class="blk">
+    <h2 class="sec">Qué estamos haciendo con tu anuncio</h2>
+    <p class="lead">La administración no es solo responder mensajes. Esto es lo que se está
+       moviendo detrás, y por qué.</p>
+    <div class="tbox"><table>
+      <thead><tr><th>Frente</th><th>Qué se está haciendo ahora</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td>Ventana de "Novedad"</td><td>Aprovechando el impulso que Airbnb da a los anuncios nuevos: quedan 47 días</td><td><span class="chip go">Activo</span></td></tr>
+        <tr><td>Precio de entrada</td><td>Tarifa bajo mercado las primeras semanas para acumular reseñas rápido</td><td><span class="chip go">Activo</span></td></tr>
+        <tr><td>Amenities de verano</td><td>Piscina y quincho a la portada y al título — se sube en noviembre</td><td><span class="chip wait">Programado</span></td></tr>
+        <tr><td>Reserva inmediata</td><td>Activada. Mejora el posicionamiento en el buscador</td><td><span class="chip ok">Listo</span></td></tr>
+        <tr><td>Llegada autónoma</td><td>Cerradura inteligente configurada, sin depender de horarios</td><td><span class="chip ok">Listo</span></td></tr>
+        <tr><td>Segundo canal</td><td>Publicación en Booking para sumar demanda que Airbnb no trae</td><td><span class="chip go">En curso</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="blk">
+    <h2 class="sec">Cómo te ves contra tu propia cuadra</h2>
+    <p class="lead">Tu anuncio comparado con los departamentos de tu comuna y tu tipología que
+       seguimos en vivo — no contra el promedio de Santiago.</p>
+    <div class="kpis">
+      <div class="kpi"><b class="num">58</b><span>Comparables 1D en Ñuñoa</span></div>
+      <div class="kpi"><b class="num">$57.389</b><span>Mediana de la zona</span></div>
+      <div class="kpi hi"><b class="num">P58</b><span>Percentil de tu tarifa</span></div>
+      <div class="kpi"><b class="num">4,89★</b><span>Tu calificación</span></div>
+    </div>
+    <div class="callout">
+      <span class="ttl">Lo que vemos este mes</span>
+      <p>Tu tarifa está levemente sobre la mediana de la zona y la ocupación acompaña, así que no
+        hay razón para bajar. La calificación viene sólida. El punto a mirar es la conversión de
+        visitas a reservas los fines de semana largos: ahí sí conviene ajustar el mínimo de noches.</p>
+    </div>
+  </div>
+
+  <div class="blk">
+    <h2 class="sec">Tu calificación, desagregada</h2>
+    <p class="lead">Airbnb la parte en seis categorías. Verlas separadas es la única forma de saber
+       qué arreglar cuando algo baja.</p>
+    <div class="tbox"><table>
+      <thead><tr><th>Categoría</th><th class="n">Tu nota</th><th>Lectura</th></tr></thead>
+      <tbody>
+        <tr><td>Limpieza</td><td class="n">4,90</td><td>Sólida. Es la causa número uno de malas reseñas, y está controlada</td></tr>
+        <tr><td>Exactitud</td><td class="n">4,95</td><td>Las fotos representan bien el departamento</td></tr>
+        <tr><td>Llegada</td><td class="n">4,80</td><td>A mirar: dos huéspedes mencionaron la conserjería</td></tr>
+        <tr><td>Comunicación</td><td class="n">5,00</td><td>Respuesta bajo una hora sostenida</td></tr>
+        <tr><td>Ubicación</td><td class="n">4,85</td><td>—</td></tr>
+        <tr><td>Precio percibido</td><td class="n">4,90</td><td>Hay espacio para subir tarifa sin castigar la nota</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- ══════════ DOCUMENTOS ══════════ -->
+<section class="panel" id="p-docs" role="tabpanel" aria-labelledby="t-docs" hidden>
+
+  <div class="blk">
+    <h2 class="sec">Todo en un lugar</h2>
+    <p class="lead">Los enlaces y documentos que como propietario vas a querer tener a mano. En el
+       panel real cada uno abre donde corresponde; acá están para que veas qué se entrega.</p>
+    <div class="links">
+      <span class="lk"><b>Tu anuncio publicado</b><span>El enlace público, tal cual lo ve el huésped</span></span>
+      <span class="lk"><b>Calendario de ocupación</b><span>Qué está reservado y qué está libre, en vivo</span></span>
+      <span class="lk"><b>Bloquear fechas</b><span>Para cuando quieras usarlo tú</span></span>
+      <span class="lk"><b>Reporte mensual</b><span>Con el detalle reserva por reserva</span></span>
+      <span class="lk"><b>Comprobantes de liquidación</b><span>Una transferencia por mes, con respaldo</span></span>
+      <span class="lk"><b>Lista de compras final</b><span>El itemizado con fecha: es el contrato de lo acordado</span></span>
+      <span class="lk"><b>Boletas y comprobantes de compra</b><span>Cada pieza con su respaldo</span></span>
+      <span class="lk"><b>Fotos profesionales</b><span>En alta resolución. Son tuyas</span></span>
+      <span class="lk"><b>Inventario del departamento</b><span>Qué hay adentro y en qué estado</span></span>
+      <span class="lk"><b>Paquete tributario</b><span>Lo que necesitas para tu declaración anual</span></span>
+      <span class="lk"><b>Contrato de administración</b><span>Firmado, siempre disponible</span></span>
+      <span class="lk"><b>Registro de incidencias</b><span>Qué se rompió, cuándo y cómo se resolvió</span></span>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="callout">
+      <span class="ttl">Por qué te mostramos esto antes de que seas cliente</span>
+      <p>Porque la parte incómoda de entregarle tu departamento a alguien es no saber qué vas a
+        poder ver después. Preferimos que lo revises ahora, con calma y sin compromiso, a que lo
+        descubras cuando ya firmaste. Si algo de acá te parece poco, dínoslo en la visita: es más
+        fácil agregarlo antes que discutirlo después.</p>
+    </div>
+  </div>
+
+  <div class="blk">
+    <p><a href="index.html">← Volver a la propuesta</a></p>
+  </div>
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <b>APTO</b> · De la búsqueda a la renta · Panel de demostración preparado para José Pablo,
+  18 de agosto de 2026.<br>
+  Todas las cifras de esta página son de ejemplo y no corresponden a tu departamento ni a ningún
+  cliente real. Sirven para mostrar el formato y el nivel de detalle del panel.
+</div></footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('nav.tabs button'));
+  function show(btn){
+    tabs.forEach(function(b){
+      var sel=(b===btn);
+      b.setAttribute('aria-selected',sel?'true':'false');
+      document.getElementById(b.getAttribute('aria-controls')).hidden=!sel;
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(function(b){
+    b.addEventListener('click',function(){show(b)});
+    b.addEventListener('keydown',function(e){
+      var i=tabs.indexOf(b);
+      if(e.key==='ArrowRight'){e.preventDefault();tabs[(i+1)%tabs.length].focus();show(tabs[(i+1)%tabs.length]);}
+      if(e.key==='ArrowLeft'){e.preventDefault();tabs[(i-1+tabs.length)%tabs.length].focus();show(tabs[(i-1+tabs.length)%tabs.length]);}
+    });
+  });
+})();
+</script>
+</body>
+</html>

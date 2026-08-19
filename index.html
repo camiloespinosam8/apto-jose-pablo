@@ -82,6 +82,15 @@ th{font-size:12.5px;color:var(--mute);font-weight:600}
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 tr.dest td{background:var(--papel);font-weight:600}
 
+.cadena{background:var(--papel);border:1px solid var(--linea);margin:22px 0}
+.cad{display:flex;justify-content:space-between;align-items:baseline;gap:18px;
+     padding:15px 24px;border-bottom:1px solid var(--linea);font-size:16px}
+.cad:last-child{border-bottom:0}
+.cad b{font-family:'Playfair Display',serif;font-size:20px;white-space:nowrap}
+.cad.neg{color:var(--mute)} .cad.neg b{color:var(--mute);font-size:18px}
+.cad.sub{background:var(--crema)} .cad.sub b{color:var(--tinta)}
+.cad.fin{background:var(--vino);color:var(--crema)}
+.cad.fin b{color:var(--crema);font-size:25px}
 .honesto{border-left:3px solid var(--naranja);background:var(--papel);padding:22px 26px;margin:30px 0}
 .honesto b{color:var(--vino)}
 .nota{font-size:13.5px;color:var(--mute);margin-top:18px;line-height:1.6}
@@ -155,6 +164,7 @@ footer .btn{margin-top:26px}
   <a href="#diseno">Diseño</a>
   <a href="#admin">Administración</a>
   <a href="#propuesta">Propuesta</a>
+  <a href="portal.html" style="color:var(--naranja);font-weight:600">Tu panel →</a>
 </div></nav>
 
 <header class="hero"><div class="wrap">
@@ -464,12 +474,42 @@ footer .btn{margin-top:26px}
     <div class="paso"><b>2 · Propuesta visual para elegir</b>
       <p>Te mostramos cómo va a quedar antes de comprar nada, con opciones montadas sobre las fotos
          de tu propio departamento. Tú eliges; no te pedimos que imagines.</p></div>
-    <div class="paso"><b>3 · Compra y montaje</b>
-      <p>Coordinamos proveedores, compras, despachos y armado. Un solo interlocutor. No tienes que
-         recibir muebles ni perseguir a nadie.</p></div>
-    <div class="paso"><b>4 · Styling y fotografía profesional</b>
-      <p>El montaje final y la sesión de fotos. Es la inversión de mayor retorno del proceso
-         completo: es, literalmente, lo único que ve el huésped antes de decidir.</p></div>
+    <div class="paso"><b>3 · Lista de compras, pieza por pieza</b>
+      <p>Cada mueble, cada lámpara, cada objeto: con foto, nombre y precio, ordenados por espacio.
+         Nada entra a la lista sin que lo veas.</p></div>
+    <div class="paso"><b>4 · Compras y montaje</b>
+      <p>Coordinamos proveedores, despachos, armado e instalación. Un solo interlocutor. No tienes
+         que recibir muebles ni perseguir a nadie.</p></div>
+  </div>
+
+  <h3 class="pf" style="font-size:23px;margin:52px 0 6px">Tu lista de compras, y por qué es tuya</h3>
+  <p class="sub" style="margin-bottom:22px">Es el documento que más tranquilidad da, porque es donde
+     normalmente se esconde la letra chica. Nosotros lo abrimos entero.</p>
+  <div class="cols">
+    <div class="paso" style="border-top-color:var(--vino)"><b>La ves antes de comprar</b>
+      <p>Te llega la lista completa con foto, nombre y precio de cada pieza, agrupada por espacio:
+         living, dormitorio, cocina, baño. No un total redondo — el detalle.</p></div>
+    <div class="paso" style="border-top-color:var(--vino)"><b>La editas tú</b>
+      <p>Marcas lo que ya tienes o lo que no quieres, y <b>el total se ajusta solo</b>. Si prefieres
+         partir con lo esencial y sumar después, se arma por etapas. Es tu plata: tú decides
+         dónde entra y dónde no.</p></div>
+    <div class="paso" style="border-top-color:var(--vino)"><b>La obra va itemizada</b>
+      <p>Nada de "montaje: monto único". Va separado: preparación y traslados, instalación de
+         iluminación, colgado de cuadros y espejos, armado de muebles, instalación de TV y montaje
+         general. Cada línea con su valor.</p></div>
+    <div class="paso" style="border-top-color:var(--vino)"><b>El pago va con fechas</b>
+      <p>Un calendario de pagos escrito: qué se paga al confirmar, qué al inicio de obra, qué en
+         materiales y qué al cierre. Sabes de antemano cuándo sale cada peso.</p></div>
+  </div>
+
+  <div class="honesto" style="margin-top:38px">
+    <p class="ttl" style="margin:0 0 10px;font-family:'Playfair Display',serif;font-size:20px;
+       font-weight:700;color:var(--vino)">Y después de comprar, sigues viendo</p>
+    <p style="margin:0">Durante la habilitación tienes acceso a un panel con el estado de cada
+      pieza — pedida, en camino, recibida, montada —, los comprobantes de compra y la cuadratura de
+      la inversión contra lo presupuestado. Si algo cambia de precio o hay que reemplazar una pieza
+      que llegó mala, lo ves ahí y te enteras por el panel, no por una sorpresa en la boleta final.
+      <b>Más abajo te dejamos el enlace para que lo recorras ahora mismo</b>, con datos de ejemplo.</p>
   </div>
   <div class="honesto" style="margin-top:38px">
     <p style="margin:0"><b>Nuestro sesgo de diseño:</b> calidez y materiales naturales — madera
@@ -504,6 +544,36 @@ footer .btn{margin-top:26px}
     <div class="paso"><b>Tú decides, nosotros operamos</b>
       <p>Bloqueas fechas cuando lo necesites y mantienes el control de las reglas de tu
          departamento. La propiedad sigue siendo tuya en todo sentido.</p></div>
+  </div>
+
+  <h3 class="pf" style="font-size:23px;margin:52px 0 6px">De lo que paga el huésped a lo que llega a tu cuenta</h3>
+  <p class="sub" style="margin-bottom:20px">La cadena completa, sin saltarse eslabones. Calculada
+     sobre el escenario base de tu 1D en Ñuñoa.</p>
+  <div class="cadena">
+    <div class="cad"><span>Ingreso bruto del mes</span><b class="num">$1.165.353</b></div>
+    <div class="cad neg"><span>Comisión de Airbnb · 15,5%</span><b class="num">−$180.630</b></div>
+    <div class="cad neg"><span>Limpieza entre estadías</span><b class="num">−$122.362</b></div>
+    <div class="cad sub"><span>Queda</span><b class="num">$862.361</b></div>
+    <div class="cad neg"><span>Administración APTO · 20%</span><b class="num">−$172.472</b></div>
+    <div class="cad fin"><span>A ti, líquido</span><b class="num">$689.889</b></div>
+  </div>
+  <div class="nota">
+    Tres cosas que conviene dejar dichas. <b>Uno:</b> la limpieza la paga el huésped dentro de lo
+    que reserva, así que no es un desembolso tuyo — aparece acá solo para que veas la cadena
+    entera. <b>Dos:</b> nuestra comisión se aplica <b>después</b> de descontar Airbnb y la limpieza,
+    o sea sobre lo que efectivamente queda, no sobre el bruto. <b>Tres:</b> es el escenario base;
+    los meses buenos y los flojos se van a ver distintos, y los vas a ver tal cual son en el
+    reporte. Cifras antes de gastos comunes y contribuciones, que siguen siendo tuyos.
+  </div>
+
+  <div class="honesto" style="margin-top:34px;border-left-color:var(--vino)">
+    <p class="ttl" style="margin:0 0 10px;font-family:'Playfair Display',serif;font-size:20px;
+       font-weight:700;color:var(--vino)">Tu panel, disponible ahora para que lo mires</p>
+    <p style="margin:0 0 18px">No te vamos a pedir que confíes en que el reporte va a ser claro:
+      te dejamos entrar a verlo. Este es el mismo panel que usarías como cliente, cargado con datos
+      de ejemplo — la lista de compras y su cuadratura, el estado de cada pieza, el reporte mensual
+      reserva por reserva, las liquidaciones y los enlaces a tu anuncio y tu calendario.</p>
+    <a class="btn" href="portal.html">Entrar al panel de ejemplo</a>
   </div>
 </div></section>
 
@@ -580,7 +650,7 @@ footer .btn{margin-top:26px}
   <p>Llevamos los números de tu zona actualizados al día de la reunión. Si después de verlos
      creemos que no es para ti, te lo vamos a decir igual de derecho: preferimos no tomar un
      departamento antes que tomar uno que no va a funcionar.</p>
-  <a class="btn" href="#mercado">Volver al estudio de mercado</a>
+  <a class="btn" href="portal.html">Recorrer tu panel de propietario</a>
   <div class="pie">
     <b>APTO</b> · De la búsqueda a la renta · Documento preparado para José Pablo el 18 de agosto
     de 2026.<br>
