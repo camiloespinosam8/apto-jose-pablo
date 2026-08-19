@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>APTO · Propuesta para José Pablo — Ñuñoa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --crema:#F4EFE6; --papel:#FBF9F4; --naranja:#C8572A; --vino:#9B3A2E;
+  --tinta:#1D1D1B; --linea:#E7DCC9; --mute:#6B6256; --exito:#2F7D5B;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--crema);color:var(--tinta);
+     font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.65;
+     -webkit-font-smoothing:antialiased}
+h1,h2,h3,.pf{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.15}
+a{color:var(--vino)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+.num{font-variant-numeric:tabular-nums}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(244,239,230,.94);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+nav .wrap{display:flex;align-items:center;gap:26px;height:58px;overflow-x:auto}
+.wordmark{font-family:'Playfair Display',serif;font-weight:800;letter-spacing:.30em;
+          font-size:19px;color:var(--naranja);flex:none}
+nav a{color:var(--mute);text-decoration:none;font-size:14px;font-weight:500;white-space:nowrap}
+nav a:hover{color:var(--naranja)}
+
+.hero{padding:88px 0 76px;border-bottom:1px solid var(--linea)}
+.kicker{color:var(--naranja);font-weight:600;font-size:14px;letter-spacing:.04em;margin-bottom:20px}
+.hero h1{font-size:clamp(40px,6.4vw,72px);margin:0 0 26px;max-width:16ch}
+.hero h1 em{font-style:italic;color:var(--vino)}
+.lead{font-size:20px;color:var(--mute);max-width:60ch;margin:0 0 34px}
+.btn{display:inline-block;background:var(--naranja);color:var(--crema);text-decoration:none;
+     padding:15px 30px;border-radius:2px;font-weight:600;font-size:16px}
+.btn:hover{background:var(--vino)}
+.btn.ghost{background:transparent;color:var(--vino);border:1px solid var(--linea);margin-left:8px}
+
+.creds{display:flex;flex-wrap:wrap;gap:36px;margin-top:52px;padding-top:34px;border-top:1px solid var(--linea)}
+.cred b{display:block;font-family:'Playfair Display',serif;font-size:30px;color:var(--vino);
+        font-weight:700;line-height:1}
+.cred span{font-size:13px;color:var(--mute)}
+
+section{padding:76px 0;border-bottom:1px solid var(--linea)}
+section h2{font-size:clamp(28px,4vw,42px);margin:0 0 12px;max-width:20ch}
+.sub{color:var(--mute);font-size:18px;max-width:64ch;margin:0 0 40px}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:34px}
+.paso{padding-top:18px;border-top:2px solid var(--naranja)}
+.paso b{display:block;font-family:'Playfair Display',serif;font-size:21px;margin-bottom:7px}
+.paso p{margin:0;color:var(--mute);font-size:15.5px}
+
+ul.check{list-style:none;padding:0;margin:0;max-width:70ch}
+ul.check li{padding:15px 0 15px 34px;border-bottom:1px solid var(--linea);position:relative;font-size:17px}
+ul.check li:before{content:"—";position:absolute;left:0;color:var(--naranja);font-weight:700}
+
+.lugar{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
+.ficha{background:var(--papel);border:1px solid var(--linea);padding:8px 26px 20px}
+.ficha .row{display:flex;justify-content:space-between;gap:16px;padding:13px 0;
+            border-bottom:1px solid var(--linea);font-size:15.5px}
+.ficha .row:last-child{border-bottom:0}
+.ficha .row span:first-child{color:var(--mute)}
+.ficha .row span:last-child{font-weight:600;text-align:right}
+
+.banda{background:var(--papel);border:1px solid var(--linea);padding:30px;margin:34px 0}
+.escala{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:26px 0 10px;text-align:center}
+.escala div{padding:22px 12px;background:var(--crema)}
+.escala div.mid{background:var(--vino);color:var(--crema)}
+.escala b{display:block;font-family:'Playfair Display',serif;font-size:clamp(24px,3.4vw,34px);
+          font-weight:700;line-height:1.1}
+.escala span{font-size:12.5px;opacity:.82;display:block;margin-top:6px}
+
+.tablabox{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:22px 0;min-width:520px}
+th,td{text-align:left;padding:13px 12px;border-bottom:1px solid var(--linea)}
+th{font-size:12.5px;color:var(--mute);font-weight:600}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.dest td{background:var(--papel);font-weight:600}
+
+.honesto{border-left:3px solid var(--naranja);background:var(--papel);padding:22px 26px;margin:30px 0}
+.honesto b{color:var(--vino)}
+.nota{font-size:13.5px;color:var(--mute);margin-top:18px;line-height:1.6}
+
+.casos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px;margin-top:14px}
+.caso{background:var(--papel);border:1px solid var(--linea);overflow:hidden;display:flex;flex-direction:column}
+.caso img{width:100%;height:200px;object-fit:cover;display:block;background:var(--linea)}
+.caso .txt{padding:18px 20px 22px}
+.caso .zona{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;margin-bottom:5px}
+.caso .met{color:var(--vino);font-weight:600;font-size:14.5px}
+.caso .det{color:var(--mute);font-size:13.5px;margin-top:7px}
+.tag{display:inline-block;background:var(--naranja);color:var(--crema);font-size:11px;
+     font-weight:700;padding:3px 9px;margin-bottom:9px;letter-spacing:.03em}
+
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px}
+blockquote{margin:0;background:var(--papel);border:1px solid var(--linea);padding:26px;
+           display:flex;flex-direction:column}
+blockquote p{margin:0 0 16px;font-family:'Playfair Display',serif;font-size:18px;
+             font-style:italic;line-height:1.5;flex:1}
+blockquote cite{font-style:normal;font-size:13px;color:var(--mute)}
+.stars{color:var(--naranja);letter-spacing:.10em;font-size:13px;margin-bottom:12px}
+
+.precio{display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+        padding:20px 0;border-bottom:1px solid var(--linea)}
+.precio .q{font-family:'Playfair Display',serif;font-size:20px}
+.precio .q small{display:block;font-family:Manrope,sans-serif;font-size:14px;
+                 color:var(--mute);font-weight:400;margin-top:3px;line-height:1.5}
+.precio .v{font-family:'Playfair Display',serif;font-size:25px;color:var(--vino);
+           font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.carta{background:var(--vino);color:var(--crema);padding:34px;margin-top:38px}
+.carta h3{margin:0 0 10px;font-size:25px;color:var(--crema)}
+.carta p{margin:0;opacity:.94;max-width:64ch}
+
+.equipo{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px}
+.pers b{display:block;font-family:'Playfair Display',serif;font-size:19px}
+.pers span{color:var(--mute);font-size:14.5px}
+ol.pasos{list-style:none;counter-reset:p;padding:0;margin:0;max-width:74ch}
+ol.pasos li{counter-increment:p;padding:19px 0 19px 56px;border-bottom:1px solid var(--linea);position:relative}
+ol.pasos li:before{content:counter(p);position:absolute;left:0;top:17px;width:34px;height:34px;
+   background:var(--naranja);color:var(--crema);border-radius:50%;display:grid;place-items:center;
+   font-weight:700;font-size:15px;font-family:Manrope,sans-serif}
+ol.pasos b{font-family:'Playfair Display',serif;font-size:18px}
+ol.pasos p{margin:3px 0 0;color:var(--mute);font-size:15.5px}
+
+footer{background:var(--tinta);color:var(--crema);padding:70px 0 46px}
+footer h2{color:var(--crema);font-size:clamp(28px,4vw,42px);margin:0 0 14px}
+footer p{opacity:.82;max-width:58ch;font-size:17px}
+footer .btn{margin-top:26px}
+.pie{margin-top:46px;padding-top:22px;border-top:1px solid rgba(244,239,230,.2);
+     font-size:12.5px;opacity:.62;line-height:1.7}
+
+@media(max-width:760px){
+  .lugar{grid-template-columns:1fr}
+  .escala{grid-template-columns:1fr}
+  .hero{padding:56px 0 48px}
+  section{padding:52px 0}
+  .creds{gap:26px}
+  body{font-size:16px}
+  .btn.ghost{margin-left:0;margin-top:10px}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <span class="wordmark">APTO</span>
+  <a href="#lugar">Tu depto</a>
+  <a href="#mercado">Mercado</a>
+  <a href="#casos">Casos</a>
+  <a href="#dicen">Testimonios</a>
+  <a href="#diseno">Diseño</a>
+  <a href="#admin">Administración</a>
+  <a href="#propuesta">Propuesta</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Preparado para José Pablo · Edificio Matta, Ñuñoa · 1 dormitorio · 18 de agosto de 2026</div>
+  <h1>Mañana te entregan las llaves. <em>Definamos qué pasa después.</em></h1>
+  <p class="lead">Somos un operador completo de renta corta: diseñamos, equipamos, publicamos y
+     administramos. Llevamos 9 años haciéndolo, con propiedades propias y de terceros, bajo la
+     misma cuenta y el mismo estándar. Esto es lo que vemos para tu 1 dormitorio del Edificio
+     Matta, con datos de tu comuna y no con promesas.</p>
+  <a class="btn" href="#mercado">Ver el mercado de tu zona</a>
+  <a class="btn ghost" href="#propuesta">Ir a la propuesta</a>
+
+  <div class="creds">
+    <div class="cred"><b>9 años</b><span>operando renta corta</span></div>
+    <div class="cred"><b>4,76★</b><span>1.202 evaluaciones</span></div>
+    <div class="cred"><b>+10.000</b><span>reservas gestionadas</span></div>
+    <div class="cred"><b>+50</b><span>propiedades en operación</span></div>
+    <div class="cred"><b>&lt;1 h</b><span>tiempo de respuesta</span></div>
+    <div class="cred"><b>Superanfitrión</b><span>categoría vigente en Airbnb</span></div>
+  </div>
+</div></header>
+
+<section id="quees"><div class="wrap">
+  <h2>Qué hacemos, en concreto</h2>
+  <p class="sub">No somos una corredora ni una empresa de aseo. Somos el operador que se hace cargo
+     del ciclo completo: desde decidir si una propiedad da el ancho, hasta el reporte mensual de lo
+     que rindió.</p>
+  <div class="cols">
+    <div class="paso"><b>Buscamos y verificamos</b>
+      <p>Con RADAR, nuestro motor de datos propio, evaluamos si una propiedad conviene antes de que
+         pongas un peso. Es el mismo filtro que usamos cuando compra alguien de la casa.</p></div>
+    <div class="paso"><b>Diseñamos</b>
+      <p>Estudio de diseño propio. No decoramos bonito: proyectamos para que arriende mejor y
+         fotografíe mejor, que es lo que finalmente mueve la reserva.</p></div>
+    <div class="paso"><b>Equipamos</b>
+      <p>Compramos, coordinamos, montamos y hacemos el styling. Tú apruebas, nosotros ejecutamos.
+         Sin que tengas que pisar una tienda ni recibir un despacho.</p></div>
+    <div class="paso"><b>Administramos</b>
+      <p>Publicación, precio dinámico, mensajería, check-in, limpieza, mantención, resolución de
+         problemas y reporte mensual. Tú recibes el depósito.</p></div>
+  </div>
+</div></section>
+
+<section id="buscas"><div class="wrap">
+  <h2>Lo que entendemos que buscas</h2>
+  <p class="sub">Esto es lo que llevamos anotado para la visita. Si algo no calza, lo corregimos ahí
+     mismo: preferimos partir de tu realidad y no de un supuesto nuestro.</p>
+  <ul class="check">
+    <li>Un <b>1 dormitorio en el Edificio Matta, Ñuñoa</b>, que te entregan mañana y que hoy está
+        completamente vacío.</li>
+    <li>Saber, con números reales de tu zona, <b>cuánto puede producir en renta corta</b> frente a
+        arrendarlo tradicional — y cuánto de la diferencia es real.</li>
+    <li>Que empiece a producir <b>pronto</b>, sin que amoblar se transforme en un proyecto personal
+        de tres meses.</li>
+    <li>No tener que operarlo tú: ni mensajes a medianoche, ni coordinar limpiezas, ni resolver una
+        llave que no abre un domingo.</li>
+    <li>Que quede <b>bien equipado y bien fotografiado desde el día uno</b>, porque el lanzamiento
+        de un anuncio no se repite.</li>
+    <li>Transparencia: saber qué entra, qué sale y por qué, mes a mes.</li>
+  </ul>
+</div></section>
+
+<section id="lugar"><div class="wrap">
+  <h2>Tu departamento</h2>
+  <p class="sub">Lo que sabemos antes de la visita. Superficie, orientación, estado real y
+     equipamiento existente los levantamos en terreno.</p>
+  <div class="lugar">
+    <div>
+      <p>Ñuñoa es, de las comunas que seguimos a diario, una de las pocas donde el arriendo
+         tradicional <b>ya deja un delta positivo</b>. Eso cambia la conversación: acá la renta
+         corta no entra a salvar un número malo, entra a <b>multiplicar uno que ya funciona</b>.
+         Es una posición cómoda, y una buena razón para no apurarse en decidir.</p>
+      <p>Lo que empuja la demanda en tu radio: el <b>Estadio Nacional</b> — conciertos y partidos
+         generan picos concretos de tarifa que se capturan con precio dinámico y se regalan con
+         tarifa plana —, la <b>Línea 3 y Plaza Egaña</b>, y un flujo estable de estadías de trabajo
+         y de salud entre semana. Un 1D bien operado en Ñuñoa no vive del turismo de verano.</p>
+      <p>Los anuncios de 1 dormitorio con mejor desempeño en la comuna comparten tres cosas:
+         estacionamiento o metro a pasos, fotografía profesional, y una calificación sobre 4,8.
+         Las tres son gestionables. Ninguna depende de la suerte.</p>
+      <p><b>Y tu edificio tiene una carta que la mayoría no tiene:</b> piscina, quincho, gimnasio y
+         lavandería. En un 1 dormitorio de 31 m², los espacios comunes dejan de ser un lujo y pasan
+         a ser superficie utilizable que sí se puede vender en el anuncio. La piscina en particular
+         es de los filtros de búsqueda que más mueven la tarifa en verano, y el quincho permite
+         apuntarle a grupos que en un depto de este tamaño normalmente ni te buscarían. Bien
+         fotografiados y bien redactados, valen tarifa.</p>
+    </div>
+    <div class="ficha">
+      <div class="row"><span>Visita</span><span>Santa Emma 05, Ñuñoa</span></div>
+      <div class="row"><span>Proyecto</span><span>Edificio Matta</span></div>
+      <div class="row"><span>Inmobiliaria</span><span>CBS</span></div>
+      <div class="row"><span>Entrega</span><span style="color:var(--naranja)">Mañana · 19-ago-2026</span></div>
+      <div class="row"><span>Tipología</span><span>1 dormitorio · 31 m²</span></div>
+      <div class="row"><span>Amenities</span><span>Piscina · quincho<br>gimnasio · lavandería</span></div>
+      <div class="row"><span>Comparables en vivo</span><span class="num">58 · 1D en Ñuñoa</span></div>
+      <div class="row"><span>Calidad del dato</span><span style="color:var(--exito)">Sólida</span></div>
+      <div class="row"><span>Datos al</span><span>18-ago-2026</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="mercado"><div class="wrap">
+  <h2>El mercado de tu zona, medido</h2>
+  <p class="sub">Estos números salen de RADAR, nuestro motor propio: <b>14.054 anuncios perfilados
+     en 23 comunas</b>, con barrido diario. Para tu caso filtramos exactamente a <b>1 dormitorio en
+     Ñuñoa</b> — nunca un promedio genérico de Santiago — y sacamos los valores extremos antes de
+     calcular.</p>
+
+  <div class="banda">
+    <b class="pf" style="font-size:21px">Tarifa por noche · 1 dormitorio en Ñuñoa</b>
+    <div class="escala">
+      <div><b class="num">$50.613</b><span>percentil 25</span></div>
+      <div class="mid"><b class="num">$57.389</b><span>mediana del mercado</span></div>
+      <div><b class="num">$66.187</b><span>percentil 75</span></div>
+    </div>
+    <div class="nota">Base: 58 anuncios de 1 dormitorio en Ñuñoa que seguimos en vivo, con valores
+      extremos removidos por rango intercuartil. Es una muestra amplia de la comuna, no el censo
+      completo del mercado.</div>
+  </div>
+
+  <h3 class="pf" style="font-size:23px;margin:44px 0 6px">Algunos de tus vecinos, hoy</h3>
+  <p class="sub" style="margin-bottom:6px">Anuncios reales de 1 dormitorio en Ñuñoa, con su tarifa y
+     su calificación pública. Este es el estándar que hay que superar.</p>
+  <div class="tablabox">
+  <table>
+    <tr><th>Anuncio</th><th class="n">Tarifa/noche</th><th class="n">★</th><th class="n">Reseñas</th></tr>
+    <tr><td>New Studio · Plaza Egaña · metro</td><td class="n">$57.730</td><td class="n">4,90</td><td class="n">166</td></tr>
+    <tr><td>Ñuñoa con estacionamiento, metro, estadios y mall</td><td class="n">$50.272</td><td class="n">4,85</td><td class="n">141</td></tr>
+    <tr><td>Estudio equipado A/C + parking · Estadio Nacional</td><td class="n">$47.000</td><td class="n">4,80</td><td class="n">203</td></tr>
+    <tr><td>Dúplex en el corazón de la comuna</td><td class="n">$46.720</td><td class="n">4,95</td><td class="n">296</td></tr>
+    <tr><td>A pasos del Estadio Nacional · parking + wifi</td><td class="n">$45.926</td><td class="n">4,95</td><td class="n">237</td></tr>
+    <tr><td>Lindo departamento en Ñuñoa</td><td class="n">$45.028</td><td class="n">4,76</td><td class="n">246</td></tr>
+  </table>
+  </div>
+
+  <h3 class="pf" style="font-size:23px;margin:48px 0 6px">Arriendo tradicional vs. renta corta</h3>
+  <p class="sub" style="margin-bottom:6px">Tu alternativa real no es dejarlo vacío: es arrendarlo a
+     largo plazo. Así se comparan, sobre la misma base.</p>
+  <div class="tablabox">
+  <table>
+    <tr><th>Escenario</th><th>Supuesto de operación</th><th class="n">A tu bolsillo, al mes</th></tr>
+    <tr><td><b>Arriendo tradicional</b></td><td>Mediana de cierre en Ñuñoa 1D (base de 430 publicaciones), descontando un mes de vacancia al año</td><td class="n">$460.000</td></tr>
+    <tr><td>Renta corta · conservador</td><td>Si opera peor que el promedio — 48% de ocupación, unas 15 noches al mes</td><td class="n">$454.000</td></tr>
+    <tr class="dest"><td>Renta corta · <b>base</b></td><td>Como el promedio del mercado — 73% de ocupación, unas 22 noches al mes</td><td class="n">$690.000</td></tr>
+    <tr><td>Renta corta · cuartil superior</td><td>Como el 25% que mejor opera — 97% de ocupación, unas 29 noches al mes</td><td class="n">$917.000</td></tr>
+  </table>
+  </div>
+
+  <div class="honesto">
+    <p style="margin:0 0 12px"><b>Lo decimos nosotros primero:</b> en el escenario conservador la
+      renta corta te deja prácticamente lo mismo que el arriendo tradicional —
+      <span class="num">$454.000</span> contra <span class="num">$460.000</span>. Si el
+      departamento se opera mal, esto no es negocio, y preferimos que lo sepas antes de firmar y no
+      después.</p>
+    <p style="margin:0">El caso se gana del escenario base hacia arriba, y ahí la diferencia deja de
+      ser marginal: <b>unos $230.000 más al mes</b> en el escenario base. Eso sin contar lo que el
+      arriendo largo cuesta y no aparece en la planilla: vacancia entre contratos, deterioro sin
+      control y reajustes que siempre llegan tarde. <b>Por eso nuestro trabajo es la operación y no
+      el ladrillo:</b> entre nuestro mejor y nuestro peor departamento hay una diferencia de casi
+      cuatro veces, y la propiedad no explica esa brecha.</p>
+  </div>
+
+  <div class="nota">
+    <b>Cómo se calculó, para que puedas auditarlo.</b> Ingreso al propietario = tarifa por noche ×
+    noches ocupadas, menos comisión de plataforma, menos costo de limpieza, menos nuestra
+    administración. Las cifras están antes de gastos comunes y contribuciones, igual que la cifra de
+    arriendo tradicional, para que la comparación sea pareja. La ocupación considera todos los
+    canales — Airbnb, Booking y reserva directa — y no solo Airbnb: mirar un canal aislado
+    subestima el resultado real. <b>Es una estimación construida sobre comparables de tu comuna y
+    tipología; no constituye una garantía de rentabilidad.</b> El número que te toque a ti depende
+    del estado del departamento, del equipamiento y de la operación, que es exactamente lo que
+    vamos a evaluar en la visita.
+  </div>
+
+  <div class="honesto" style="border-left-color:var(--vino)">
+    <p class="ttl" style="margin:0 0 12px;font-family:'Playfair Display',serif;font-size:21px;
+       font-weight:700;color:var(--vino)">El reloj que ya está corriendo</p>
+    <p style="margin:0">Te entregan mañana. Desde ese día el departamento genera gastos comunes y
+      contribuciones, y no genera nada a cambio. En la banda base, <b>cada mes que pasa cerrado
+      cuesta del orden de $690.000</b> que no se recuperan después. Es la única cifra urgente de
+      todo este documento: no hay que decidir rápido por presión comercial, hay que decidir rápido
+      porque el costo de no decidir es diario.</p>
+  </div>
+</div></section>
+
+<section id="casos"><div class="wrap">
+  <h2>Departamentos que ya administramos</h2>
+  <p class="sub">Casos reales de nuestra cartera, con su calificación pública de Airbnb al día de
+     hoy. Mostramos zona y desempeño; la identidad de cada propietario se mantiene reservada, igual
+     que mantendríamos la tuya.</p>
+  <div class="casos">
+    <div class="caso">
+      <img loading="lazy" alt="Departamento de 1 dormitorio en Ñuñoa que administramos"
+        src="https://a0.muscache.com/im/pictures/hosting/Hosting-1645779873438478383/original/6b207d91-c925-415b-a1de-88f6558a2228.png?aki_policy=x_large">
+      <div class="txt"><span class="tag">TU MISMA COMUNA Y TIPOLOGÍA</span>
+        <div class="zona">Ñuñoa · 1 dormitorio</div>
+        <div class="met">5,0★ · Superanfitrión</div>
+        <div class="det">Apartamento boutique con estacionamiento, en Vicuña Mackenna. Es el caso
+          más parecido al tuyo que tenemos: misma comuna, misma tipología. Forma parte de un
+          portafolio de varias unidades en el mismo edificio.</div></div>
+    </div>
+    <div class="caso">
+      <img loading="lazy" alt="Departamento premium en Santiago Centro que administramos"
+        src="https://a0.muscache.com/im/pictures/hosting/Hosting-1534906950921145157/original/75b4fae0-f006-4762-9780-399f9d7bb699.jpeg?aki_policy=x_large">
+      <div class="txt">
+        <div class="zona">Santiago Centro</div>
+        <div class="met">4,88★ · 26 reseñas</div>
+        <div class="det">Apartamento premium en el Centro Histórico, con decenas de reservas
+          acumuladas. Es la zona de mayor competencia de Santiago: ahí se gana con operación e
+          identidad, nunca bajando el precio.</div></div>
+    </div>
+    <div class="caso">
+      <img loading="lazy" alt="Departamento con vista al mar en Viña del Mar que administramos"
+        src="https://a0.muscache.com/im/pictures/hosting/Hosting-1667203687277825449/original/40aaf117-4b3b-4b81-b76f-bbff206b4d54.png?aki_policy=x_large">
+      <div class="txt">
+        <div class="zona">Recreo, Viña del Mar</div>
+        <div class="met">4,86★ · 14 reseñas</div>
+        <div class="det">Departamento boutique con terraza y vista al mar. Muestra que el estándar
+          se sostiene fuera de Santiago, con el mismo equipo y el mismo protocolo de operación.</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="dicen"><div class="wrap">
+  <h2>Qué dicen los huéspedes</h2>
+  <p class="sub">La calificación no es una métrica de vanidad: en Airbnb decide si tu anuncio
+     aparece arriba o desaparece del buscador. Y se construye con operación, no con decoración.
+     Estas son reseñas públicas y textuales de departamentos que administramos.</p>
+  <div class="quotes">
+    <blockquote>
+      <div class="stars">★★★★★</div>
+      <p>“Realmente recomiendo este alojamiento, muy buen precio, conectividad, limpieza y Camilo
+         un anfitrión 20/10, preocupado de cada detalle, excelente servicio.”</p>
+      <cite>Danilo · Ñuñoa, Chile — sobre el 1D de Ñuñoa</cite>
+    </blockquote>
+    <blockquote>
+      <div class="stars">★★★★★</div>
+      <p>“Muy cómodo y acogedor el departamento. Tuve una situación con la ducha y toallas que
+         rápidamente fue resuelto por Camilo. Destaco que en todo momento buscó dar una solución.
+         Lo ocurrido no empaña la experiencia.”</p>
+      <cite>Daniel · Chile — sobre el depto de Santiago Centro</cite>
+    </blockquote>
+    <blockquote>
+      <div class="stars">★★★★★</div>
+      <p>“Un Airbnb realmente hermoso, exactamente como en las fotos, todo se veía completamente
+         nuevo y muy acogedor. Lo recomendaría encarecidamente.”</p>
+      <cite>Maddy · 5 años en Airbnb — sobre el depto de Santiago Centro</cite>
+    </blockquote>
+    <blockquote>
+      <div class="stars">★★★★★</div>
+      <p>“El departamento no solo es hermoso y está decorado con un gusto exquisito, sino que
+         además ofrece unas vistas insuperables y estaba impecablemente limpio. Sin dudas
+         volvería.”</p>
+      <cite>Guadalupe · Santiago, Chile — sobre el depto de Recreo, Viña</cite>
+    </blockquote>
+    <blockquote>
+      <div class="stars">★★★★★</div>
+      <p>“Excelente lugar, esta es la segunda vez que nos quedamos aquí y es espectacular: lugar,
+         limpieza, full equipado, todo es igual a las fotografías, lindo y acogedor diseño.”</p>
+      <cite>Jorge · Santiago, Chile — huésped que volvió</cite>
+    </blockquote>
+    <blockquote>
+      <div class="stars">★★★★★</div>
+      <p>“El depto es increíble, muy bonito, limpieza impecable, cómodo, y el flujo de comunicación
+         con Camilo fue muy ágil. ¡Recomendadísimo!”</p>
+      <cite>Kevin · Santiago, Chile — sobre el 1D de Ñuñoa</cite>
+    </blockquote>
+  </div>
+  <div class="banda" style="margin-top:34px">
+    <b class="pf" style="font-size:20px">La credencial completa, verificable en el perfil</b>
+    <p style="margin:14px 0 0;color:var(--mute)">
+      <b style="color:var(--tinta)">4,76★ sobre 1.202 evaluaciones</b>, categoría Superanfitrión
+      vigente, 9 años de operación continua y más de 10.000 reservas gestionadas. El tiempo de
+      respuesta promedio es <b style="color:var(--tinta)">menor a una hora</b>, que en la práctica
+      es la variable que más mueve la conversión de una consulta en reserva.</p>
+  </div>
+</div></section>
+
+<section id="diseno"><div class="wrap">
+  <h2>Cómo trabajamos el diseño y el equipamiento</h2>
+  <p class="sub">Tenemos estudio de diseño propio. Eso significa que el proyecto no se subcontrata y
+     que el criterio es comercial: cada decisión se toma pensando en cómo se va a ver en la foto y
+     en cómo lo va a vivir el huésped que después escribe la reseña.</p>
+  <div class="cols">
+    <div class="paso"><b>1 · Levantamiento en terreno</b>
+      <p>Medimos, fotografiamos y detectamos lo que hay que resolver antes de decorar: iluminación,
+         cortinas, estado de muros, lo que falta y lo que sobra.</p></div>
+    <div class="paso"><b>2 · Propuesta visual para elegir</b>
+      <p>Te mostramos cómo va a quedar antes de comprar nada, con opciones montadas sobre las fotos
+         de tu propio departamento. Tú eliges; no te pedimos que imagines.</p></div>
+    <div class="paso"><b>3 · Compra y montaje</b>
+      <p>Coordinamos proveedores, compras, despachos y armado. Un solo interlocutor. No tienes que
+         recibir muebles ni perseguir a nadie.</p></div>
+    <div class="paso"><b>4 · Styling y fotografía profesional</b>
+      <p>El montaje final y la sesión de fotos. Es la inversión de mayor retorno del proceso
+         completo: es, literalmente, lo único que ve el huésped antes de decidir.</p></div>
+  </div>
+  <div class="honesto" style="margin-top:38px">
+    <p style="margin:0"><b>Nuestro sesgo de diseño:</b> calidez y materiales naturales — madera
+      clara, paleta tierra, textiles, luz cálida en capas. No es una moda: es lo que mejor
+      fotografía y lo que menos se cansa con el uso intensivo. Un departamento de renta corta recibe
+      muchas más personas que uno arrendado a un año, y lo que se elige tiene que aguantar eso.</p>
+  </div>
+</div></section>
+
+<section id="admin"><div class="wrap">
+  <h2>Cómo trabajamos la administración</h2>
+  <p class="sub">Acá es donde se define el resultado. La propiedad pone el techo; la operación
+     decide cuánto de ese techo se alcanza.</p>
+  <div class="cols">
+    <div class="paso"><b>Publicación y posicionamiento</b>
+      <p>Anuncio escrito y fotografiado para convertir, en todos los canales. Aprovechamos la
+         ventana de "Novedad" que Airbnb le da a los anuncios nuevos: dura entre 30 y 90 días y no
+         se repite nunca. Lanzar bien la primera vez vale oro.</p></div>
+    <div class="paso"><b>Precio que se mueve</b>
+      <p>Tarifa dinámica por temporada, día de la semana, eventos y demanda real. En Ñuñoa, los
+         eventos del Estadio Nacional son picos concretos que una tarifa plana simplemente regala.</p></div>
+    <div class="paso"><b>Atención al huésped</b>
+      <p>Respondemos en menos de una hora, todos los días del año. Check-in autónomo con cerradura
+         inteligente. Cuando algo falla — y a veces falla — lo resolvemos nosotros.</p></div>
+    <div class="paso"><b>Limpieza y mantención</b>
+      <p>Protocolo entre estadías, reposición de insumos y revisión del estado. La limpieza es la
+         causa número uno de las malas calificaciones; por eso no la dejamos al azar.</p></div>
+    <div class="paso"><b>Reporte mensual</b>
+      <p>Noches, tarifa promedio, ocupación, ingresos y gastos. Sin letra chica. Sabes exactamente
+         de dónde viene cada peso que recibes.</p></div>
+    <div class="paso"><b>Tú decides, nosotros operamos</b>
+      <p>Bloqueas fechas cuando lo necesites y mantienes el control de las reglas de tu
+         departamento. La propiedad sigue siendo tuya en todo sentido.</p></div>
+  </div>
+</div></section>
+
+<section id="propuesta"><div class="wrap">
+  <h2>Tu propuesta</h2>
+  <p class="sub">Valores de referencia para un 1 dormitorio. El número final se cierra después de la
+     visita, cuando sepamos qué hay y qué falta — no antes.</p>
+  <div class="precio"><div class="q">Diseño e implementación · 1 dormitorio
+      <small>Proyecto completo: levantamiento, propuesta visual, selección y compra</small></div>
+    <div class="v">$480.000</div></div>
+  <div class="precio"><div class="q">Montaje, styling y fotografía profesional
+      <small>Armado, ambientación final y sesión de fotos del anuncio</small></div>
+    <div class="v">desde $399.000</div></div>
+  <div class="precio"><div class="q">Administración APTO
+      <small>Todo lo de la sección anterior, sin costo fijo mensual: solo sobre lo que genera</small></div>
+    <div class="v">20%</div></div>
+  <div class="precio"><div class="q">Puesta en marcha estimada
+      <small>Desde la entrega del departamento hasta que el anuncio está publicado</small></div>
+    <div class="v">~30 días</div></div>
+  <p class="nota">La inversión de habilitación se recupera típicamente en <b>1 a 3 meses</b> de
+    operación en el escenario base. Nuestra administración es un porcentaje de lo que el
+    departamento genera: si no genera, no cobramos. Tu incentivo y el nuestro apuntan al mismo lado,
+    que es el único modelo bajo el cual tiene sentido que existamos.</p>
+
+  <div class="carta">
+    <h3>Lo que podemos hacer si partimos esta semana</h3>
+    <p>Si cerramos el proyecto en los próximos días, <b>el styling y la sesión de fotografía
+      profesional van bonificados</b>. La razón es concreta y la vas a ver tú mismo mañana: te
+      entregan junto con tus vecinos, y todos van a salir a amoblar la misma semana. Esos vecinos
+      son tu competencia más dura — misma tipología, mismos metros, las mismas fotos de piscina y
+      quincho. El que publica primero se lleva las primeras reseñas del edificio, y las reseñas son
+      lo único que después no se puede comprar. Leyerd tiene el detalle para conversarlo contigo en
+      la visita.</p>
+  </div>
+</div></section>
+
+<section id="equipo"><div class="wrap">
+  <h2>Quiénes somos</h2>
+  <p class="sub">Un equipo chico y responsable de punta a punta. Vas a saber siempre con quién estás
+     hablando.</p>
+  <div class="equipo">
+    <div class="pers"><b>Camilo Espinosa</b><span>Fundador. Anfitrión titular de la cuenta, con
+      9 años y 1.202 evaluaciones a su nombre. Opera propiedades propias con el mismo estándar que
+      las de terceros.</span></div>
+    <div class="pers"><b>Leyerd Pedraza</b><span>Comercial. Te acompaña desde la visita hasta la
+      puesta en marcha, y queda como tu contacto directo después.</span></div>
+    <div class="pers"><b>Estudio de diseño</b><span>Proyecto, selección de mobiliario, compras y
+      montaje. Equipo interno, no subcontratado.</span></div>
+    <div class="pers"><b>Operación y huéspedes</b><span>Atención, coordinación de limpiezas,
+      mantención y resolución de incidencias, todos los días del año.</span></div>
+  </div>
+</div></section>
+
+<section id="pasos"><div class="wrap">
+  <h2>Cómo seguimos</h2>
+  <ol class="pasos">
+    <li><b>La visita, apenas tengas las llaves</b><p>Medimos, fotografiamos el estado de entrega y
+      revisamos los espacios comunes. Aprovechamos de dejar registrado cualquier detalle de la
+      recepción, que conviene tener por escrito desde el día uno. Sin costo y sin compromiso.</p></li>
+    <li><b>Propuesta cerrada</b><p>Proyecto de diseño para los 31 m², presupuesto de equipamiento
+      exacto y proyección afinada para tu unidad. En días, no en semanas.</p></li>
+    <li><b>Aprobación y abono</b><p>Apruebas el proyecto y la lista de compras. Recién ahí se
+      compromete plata.</p></li>
+    <li><b>Habilitación</b><p>Compras, montaje, styling y fotografía profesional. Alrededor de
+      30 días.</p></li>
+    <li><b>Publicación y operación</b><p>Sale el anuncio aprovechando la ventana de "Novedad" y
+      antes que tus vecinos del mismo edificio. Desde ahí nos hacemos cargo nosotros: tú recibes el
+      reporte.</p></li>
+  </ol>
+</div></section>
+
+<footer><div class="wrap">
+  <h2>Conversemos en la visita</h2>
+  <p>Llevamos los números de tu zona actualizados al día de la reunión. Si después de verlos
+     creemos que no es para ti, te lo vamos a decir igual de derecho: preferimos no tomar un
+     departamento antes que tomar uno que no va a funcionar.</p>
+  <a class="btn" href="#mercado">Volver al estudio de mercado</a>
+  <div class="pie">
+    <b>APTO</b> · De la búsqueda a la renta · Documento preparado para José Pablo el 18 de agosto
+    de 2026.<br>
+    Las proyecciones de este documento son estimaciones construidas sobre comparables públicos de
+    Ñuñoa, tipología 1 dormitorio, y sobre nuestra operación histórica. <b>No constituyen una
+    garantía de rentabilidad.</b> El resultado real depende del estado de la propiedad, del
+    equipamiento, de la estacionalidad y de la operación. Los valores de servicio son referenciales
+    y se confirman después de la visita técnica.
+  </div>
+</div></footer>
+
+</body>
+</html>
